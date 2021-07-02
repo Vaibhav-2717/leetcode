@@ -1,0 +1,20 @@
+class Solution {
+    public List<Integer> grayCode(int n) {
+        List<Integer> l = new ArrayList<>();
+        l.add(0);
+        if(n==0){
+            return l;
+        }
+        l.add(1);
+       int curr=1;
+        for(int i=2;i<=n;i++){
+            curr *=2;
+            for(int j=l.size()-1;j>=0;j--){
+                l.add(curr+l.get(j));
+            }
+            
+        }
+        return l;
+        
+    }
+}
