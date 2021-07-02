@@ -1,0 +1,12 @@
+class Solution {
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+         List<Integer> l=new ArrayList<>();
+        for(int num:arr){
+            l.add(num);
+        }
+        Collections.sort(l,(num1,num2)->Math.abs(num1-x)-Math.abs(num2-x));
+        l= l.subList(0,k);
+        Collections.sort(l);
+        return l;
+    }
+}
