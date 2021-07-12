@@ -1,0 +1,23 @@
+class Solution {
+    public int minSetSize(int[] arr) {
+        int size = (int)(1e5)+1;
+        int a[] = new int[size];
+        for(int i=0;i<arr.length;i++)
+            a[arr[i]]++;
+        ArrayList<Integer> b = new ArrayList<>();
+        for(int i=0;i<size;i++)
+            if(a[i]!=0)
+                b.add(a[i]);
+        Collections.sort(b);
+        int count = 0;
+        int sum = 0;
+        int n = arr.length;
+        for(int i=b.size()-1;i>=0;i--){
+            count++;
+            sum += b.get(i);
+            if(sum >= n/2)
+                break;
+        }
+        return count; 
+    }
+}
