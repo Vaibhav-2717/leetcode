@@ -1,0 +1,47 @@
+class Solution {
+    public int[] threeEqualParts(int[] arr) {
+        int ans[]= new int[]{-1,-1};
+        
+        int numof1s=0;
+        for(int el:arr){
+            numof1s+=el;
+        }
+        if(numof1s==0){
+            return new int[]{0,2};
+        }
+        if(numof1s%3!=0){
+            return ans;
+        }
+        int numof1ineachpart=(numof1s)/3;
+        int numsof1inpart0=-1;
+        int numsof1inpart1=-1;
+        int numsof1inpart2=-1;
+        numof1s=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==1){
+                numof1s++;
+                if(numof1s==numof1ineachpart+1){
+                    numsof1inpart1=i;
+                }
+                else if(numof1s==2*numof1ineachpart+1){
+                    numsof1inpart2=i;
+                }
+                else if(numof1s==1){
+                    numsof1inpart0=i;
+                }
+            }
+        }
+        
+        while(numsof1inpart2<arr.length){
+            if(arr[numsof1inpart2]==arr[numsof1inpart0]&&arr[numsof1inpart2]==arr[numsof1inpart1]){
+                numsof1inpart0++;
+                numsof1inpart1++;
+                numsof1inpart2++;
+            }
+            else{
+                return ans;
+            }
+        }
+        return new int[]{numsof1inpart0-1,numsof1inpart1};
+    }
+}
