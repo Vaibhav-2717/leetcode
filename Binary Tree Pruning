@@ -1,0 +1,20 @@
+class Solution {
+    public TreeNode pruneTree(TreeNode root) {
+        if(root==null){
+            return null;
+        }
+        root.right=pruneTree(root.right);
+        root.left = pruneTree(root.left);
+         if(candelete(root)==true)
+             return null;
+        return root;
+        
+    }
+    
+    private boolean candelete(TreeNode root){
+        if(root.right==null && root.left==null && root.val==0)
+            return true;
+        else
+            return false;
+    }
+}
