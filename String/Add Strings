@@ -1,0 +1,40 @@
+class Solution {
+    public String addStrings(String num1, String num2) {
+        String ans = "";
+        int carry=0,sum=0;
+        int i=num1.length()-1,j=num2.length()-1;
+        
+        while(i>=0 && j>=0){
+            int a= num1.charAt(i)-'0';
+            int b= num2.charAt(j)-'0';
+            
+            sum=a+b+carry;
+            carry=sum/10;
+            sum = sum%10;
+            ans=sum+ans;
+            i--;
+            j--;
+        }
+        
+        while(i>=0){
+             int a= num1.charAt(i)-'0';
+            sum=a+carry;
+            carry=sum/10;
+            sum = sum%10;
+            ans=sum+ans;
+            i--;
+        }
+            while(j>=0){
+            int b= num2.charAt(j)-'0';
+            sum=b+carry;
+            carry=sum/10;
+            sum = sum%10;
+            ans=sum+ans;
+            j--;
+        }
+        if(carry==1){
+            ans = "1"+ans;
+        }
+        return ans;
+    }
+}
