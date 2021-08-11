@@ -1,0 +1,23 @@
+class Solution {
+    public boolean canReorderDoubled(int[] arr) {
+        Map<Integer,Integer> count = new TreeMap<>();
+        for(int i:arr)
+            count.put(i,count.getOrDefault(i,0)+1);
+        
+        for(int j:count.keySet()){
+            if(count.getOrDefault(j,0)>0){
+                int target = j<0 ? j/2 : j*2;
+              
+                if(j<0 && j%2 !=0){
+                    return false;
+                }
+                
+                if(count.get(j)>count.getOrDefault(target,0)){
+                    return false;
+                }
+                count.put(target,count.get(target)-count.get(j));
+            }
+        }
+        return true;
+    }
+}
