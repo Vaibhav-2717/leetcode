@@ -1,0 +1,13 @@
+class Solution {
+    public String complexNumberMultiply(String num1, String num2) {
+        String x[]=num1.split("\\+|i");
+        String y[]=num2.split("\\+|i");
+        
+        int a1=Integer.parseInt(x[0]);   //real part of string 1
+        int b1= Integer.parseInt(x[1]);  ///imaginary part of string1
+        int a2=Integer.parseInt(y[0]);  //real part of string2
+        int b2= Integer.parseInt(y[1]);  ///imaginary part of string2
+        
+    return (a1*a2 - b1*b2)+ "+"+(a2*b1 +a1*b2)+"i";
+    }
+}
