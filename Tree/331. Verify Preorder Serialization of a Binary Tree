@@ -1,0 +1,17 @@
+class Solution {
+    public boolean isValidSerialization(String preorder) {
+        String [] nodes= preorder.split(",");
+        int vacnt =1;
+        for(String node:nodes){
+            
+            vacnt--;
+            
+            if(vacnt<0)
+                return false;
+            
+            if(!node.equals("#"))
+                vacnt+=2;
+        }
+        return vacnt==0;
+    }
+}
