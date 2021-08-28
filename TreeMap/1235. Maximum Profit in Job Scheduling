@@ -1,0 +1,34 @@
+class Solution {
+    private class job{
+        private int startTime;
+        private int endTime;
+        private int profit;
+        
+        public job(int st,int et,int p){
+            this.startTime=st;
+            this.endTime=et;
+            this.profit=p;
+        }
+    }
+    
+    public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
+        List<job> jobs = new ArrayList<>();
+        
+        for(int i=0;i<startTime.length;i++){
+            jobs.add(new job(startTime[i],endTime[i],profit[i]));
+        }
+        
+        Collections.sort(jobs, (a,b) -> (a.endTime - b.endTime));
+        
+        TreeMap<Integer,Integer> map= new TreeMap<>();
+        int ans=0;
+        
+        for(job currjob:jobs){
+            Integer entrytillst=map.floorKey(currjob.startTime);
+            int maxprofittillst=entrytillst==null ?0:map.get(entrytillst);
+            ans=Math.max(ans,maxprofittillst+currjob.profit);
+            map.put(currjob.endTime,ans);
+        }
+        return ans;
+    }
+}
