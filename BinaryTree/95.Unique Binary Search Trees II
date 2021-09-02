@@ -1,0 +1,30 @@
+  class Solution {
+    public List<TreeNode> generateTrees(int n) {
+        return helper(1,n);
+    }
+    List<TreeNode> helper(int start,int end){
+       List<TreeNode> list = new ArrayList<>();
+        if(start>end)
+        {
+            list.add(null);
+            return list;
+        }
+        if(start==end){
+            list.add(new TreeNode(start));
+            return list;
+        }
+        for(int i=start;i<=end;i++){
+            List<TreeNode> lefttree = helper(start,i-1);
+            List<TreeNode> righttree= helper(i+1,end);
+            for(TreeNode lroot : lefttree){
+                for(TreeNode Rroot : righttree){
+                    TreeNode root = new TreeNode(i);
+                    root.left=lroot;
+                    root.right=Rroot;
+                    list.add(root);
+                }
+            }
+        }
+        return list;
+    }
+}
