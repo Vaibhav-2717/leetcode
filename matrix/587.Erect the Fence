@@ -1,1 +1,44 @@
-
+class Solution {
+    public int[][] outerTrees(int[][] trees) {
+        if(trees.length <=1) return trees;
+        
+        HashSet<int []> list = new HashSet<int []>();
+        int left =0;
+        
+        for(int i=0;i<trees.length;i++){
+            if(trees[i][0]<trees[left][0])
+                left=i;
+        }
+        
+        int current = left;
+        while(true){
+            int next = (current+1)% trees.length;
+            for(int i=0;i<trees.length;i++){
+                if(isclock(trees[current],trees[next],trees[i])>0)
+                    next=i;
+            }
+            
+            for(int i=0;i<trees.length;i++){
+                if( i!= current && i!= next && isclock(trees[current],trees[next],trees[i])==0 && isbetween(trees[current],trees[i],trees[next])){
+                    list.add(trees[i]);
+                }
+            }
+            list.add(trees[next]);
+            current = next;
+            if(current==left)
+                break;
+        }
+        return list.toArray(new int[list.size()][2]);
+    }
+    
+    public int isclock(int a[],int b[],int c[]){
+        return ((c[0]-a[0])*(b[1]-a[1]))-((b[0]-a[0])*(c[1]-a[1]));
+    }
+    
+    public boolean isbetween(int a[],int i[],int b[]){
+        boolean m=a[0] <= i[0] && i[0] <=b[0] || b[0] <= i[0] && i[0] <=a[0];
+        boolean n=a[1] <= i[1] && i[1] <= b[1] || b[1] <= i[1] && i[1]<=a[1];
+        
+        return m &&n;
+    }
+}
