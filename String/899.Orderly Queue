@@ -1,0 +1,27 @@
+class Solution {
+    public String orderlyQueue(String s, int k) {
+       if(k<1){
+           return s;
+       } 
+        
+       else if(k>1){
+            char[] chars=s.toCharArray();
+            Arrays.sort(chars);
+            
+            return new String(chars);
+        }
+        
+        else if(k==1){
+            String ans =s;
+            for(int i=1;i<s.length();i++){
+                String reorder = s.substring(i)+s.substring(0,i);
+                if(ans.compareTo(reorder)>0){
+                    ans=reorder;
+                }
+            }
+            return ans;
+        }
+        
+        return s;
+    }
+}
