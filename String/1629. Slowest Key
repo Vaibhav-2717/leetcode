@@ -1,0 +1,18 @@
+class Solution {
+    public char slowestKey(int[] releaseTimes, String keysPressed) {
+      int n=releaseTimes.length;
+        int longestpress=releaseTimes[0];
+        char slow = keysPressed.charAt(0);
+        
+        for(int i=1;i<n;i++){
+            int currpress= releaseTimes[i]-releaseTimes[i-1];
+            
+            if(currpress>longestpress || currpress==longestpress&& keysPressed.charAt(i)>slow){
+               longestpress= currpress;
+                slow=keysPressed.charAt(i);
+            }
+        }
+        
+        return slow;
+    }
+}
