@@ -1,0 +1,28 @@
+class Solution {
+    public int maxNumberOfBalloons(String text) {
+        String pattern ="balloon";
+        return anypatternhelp(text,pattern);
+    }
+    
+    public int anypatternhelp(String text,String pattern){
+        int m=text.length(),n=pattern.length(),ans=Integer.MAX_VALUE;
+        int freqtext[]=new int[26];
+        int freqpattrn[]=new int[26];
+        
+        for(int i=0;i<m;i++)
+        {
+            freqtext[text.charAt(i)-'a']++;
+        } 
+            
+        for(int i=0;i<n;i++){
+            freqpattrn[pattern.charAt(i)-'a']++;
+        } 
+        
+        for(int i=0;i<26;i++){
+            if(freqpattrn[i]>0){
+                ans=Math.min(ans, freqtext[i]/freqpattrn[i]);
+            }
+        }
+        return ans;
+    } 
+}
