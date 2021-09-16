@@ -1,0 +1,30 @@
+class Solution {
+    public int maxTurbulenceSize(int[] arr) {
+        if(arr.length<2)
+            return arr.length;
+        
+        int max=1;
+        int start=0;
+        int end=0;
+        int len = arr.length;
+        
+        while(start+1<len){
+           if(arr[start]==arr[start+1]){
+               start ++;
+               continue;
+           }
+            end=start+1;
+            while(end+1 <len&& iscurrentturbulent(arr,end)){
+                end++;
+            }
+            
+            max=Math.max(max,end-start+1);
+            start=end;
+        }
+        return max;
+    }
+    
+    private boolean iscurrentturbulent(int []arr,int k){
+        return (arr[k]>arr[k-1] && arr[k]>arr[k+1] || arr[k]<arr[k-1]&&arr[k]<arr[k+1]);
+    }
+}
