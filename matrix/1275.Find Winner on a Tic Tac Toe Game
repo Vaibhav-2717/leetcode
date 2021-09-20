@@ -1,0 +1,51 @@
+class Solution {
+    
+    private int board[][];
+    private int n=3;
+    
+    public String tictactoe(int[][] moves) {
+       board = new int[n][n];
+         int player=1;
+        
+        for(int []move:moves){
+            int row=move[0],col=move[1];
+            board[row][col]=player;
+            
+            if(chckrow(row,player)||chckcol(col,player)||(row==col && diagonal(player))||
+              ((row+col)==n-1 && antidiagonal(player))){
+                return player ==1 ? "A":"B";
+            }
+            player *= -1;
+        }
+        return moves.length == n*n ? "Draw" : "Pending" ;
+    }
+    private boolean chckcol(int col,int player){
+        for(int row=0;row<n;++row){
+            if(board[row][col]!=player)
+                return false;
+        }
+        return true;
+    }
+    private boolean chckrow(int row,int player){
+        for(int col=0;col<n;++col){
+            if(board[row][col]!=player)
+                return false;
+        }
+        return true;
+    }
+    private boolean diagonal(int player){
+        for(int row=0;row<n;row++){
+            if(board[row][row]!=player)
+                return false;
+        }
+        return true;
+    }
+    
+    private boolean antidiagonal(int player){
+        for(int row=0;row<n;row++){
+            if(board[row][n-1-row]!=player)
+                return false;
+        }
+        return true;
+    }
+}
