@@ -1,0 +1,19 @@
+class Solution {
+    public String breakPalindrome(String palindrome) {
+        char c[]=palindrome.toCharArray();
+        // string length shoud be greater than 2 
+        if(c.length<2){
+            return "";
+        }
+        
+        for(int i=0;i<c.length/2;i++){
+            if(c[i]!='a'){
+                c[i]='a';
+                return String.valueOf(c);
+            }
+        }
+        
+        c[c.length-1]='b';
+      return String.valueOf(c);
+    }
+}
