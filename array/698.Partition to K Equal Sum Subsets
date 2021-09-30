@@ -1,0 +1,35 @@
+class Solution {
+    public boolean canPartitionKSubsets(int[] nums, int k) {
+        int total=0;
+        for(int i:nums)
+            total+=i;
+        
+        if(total%k != 0)
+            return false;
+        if(nums.length<k)
+            return false;
+        
+        int subsetsum=total/k;
+        boolean[]visited= new boolean[nums.length];
+        
+        return candivide(nums,visited,0,k,0,subsetsum);
+    }
+    private boolean candivide(int []nums,boolean[]visited,int start,int k,int sum,int subsetsum){
+        if(k==0) return true;
+        
+        if(sum>subsetsum) return false;
+        
+        if(sum==subsetsum){
+            return candivide(nums,visited,0,k-1,0,subsetsum);
+        }
+        
+        for(int i=start;i<nums.length;i++){
+            if(visited[i]) continue;
+            visited[i]=true;
+            if(candivide(nums,visited,i+1,k,sum+nums[i],subsetsum)) return true;
+            visited[i]=false;
+        }
+        
+        return false;
+    }
+}
