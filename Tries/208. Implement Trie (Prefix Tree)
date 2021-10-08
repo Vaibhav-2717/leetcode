@@ -1,0 +1,51 @@
+class Trie {
+       private TrieNode root;
+      private class TrieNode{
+          private TrieNode[]children =null;
+          private boolean isword;
+          public TrieNode(){
+              children= new TrieNode[26];
+          }
+      }
+    public Trie() {
+        root =new TrieNode();
+    }
+    
+    public void insert(String word) {
+        TrieNode it = root;
+        for(char c : word.toCharArray()){
+            int index=c-'a';
+            if(it.children[index]==null){
+                it.children[index]=new TrieNode();
+            }
+            it=it.children[index];
+        }
+        it.isword=true;
+    }
+    
+    public boolean search(String word) {
+        TrieNode it =root;
+        for(char c:word.toCharArray()){
+            int index=c-'a';
+            if(it.children[index]==null){
+                return false;
+            }else{
+            it=it.children[index];
+        }
+    }
+        return it.isword;
+    }
+    
+    public boolean startsWith(String prefix) {
+           TrieNode it =root;
+        for(char c:prefix.toCharArray()){
+            int index=c-'a';
+            if(it.children[index]==null){
+                return false;
+            }else{
+            it=it.children[index];
+        }
+    }
+        return true;
+    }
+}
