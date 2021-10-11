@@ -1,0 +1,16 @@
+class Solution {
+    public int diameterOfBinaryTree(TreeNode root) {
+        if(root==null)
+            return 0;
+        int countdiameter = diameter(root.left)+diameter(root.right);
+        int leftdiameter=diameterOfBinaryTree(root.left);
+        int rightdiameter=diameterOfBinaryTree(root.right);
+        
+        return Math.max(countdiameter,Math.max(leftdiameter,rightdiameter));
+        }
+    public int diameter(TreeNode root){
+        if(root==null)
+            return 0;
+        return 1+Math.max(diameter(root.left),diameter(root.right));
+    }
+}
