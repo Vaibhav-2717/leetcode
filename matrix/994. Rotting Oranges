@@ -1,0 +1,42 @@
+class Solution {
+    private static final int[][] DIRECTIONS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    
+    public int orangesRotting(int[][] grid) {
+        int rows = grid.length;
+        int cols = grid[0].length;
+        
+        int fresh = 0;
+        Queue<Integer> rotten = new ArrayDeque<>();
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (grid[r][c] == 1) {
+                    fresh++;
+                } else if (grid[r][c] == 2) {
+                    rotten.add(r * cols + c);
+                }
+            }
+        }
+        
+        int timer = 0;
+        while (!rotten.isEmpty() && fresh > 0) {
+            timer++;
+            int size = rotten.size();
+            while (size-- > 0) {
+                int coord = rotten.remove();
+                int r = coord / cols;
+                int c = coord % cols;
+                
+                for (int[] d : DIRECTIONS) {
+                    int nextR = r + d[0];
+                    int nextC = c + d[1];
+                    if (nextR >= 0 && nextR < rows && nextC >= 0 && nextC < cols && grid[nextR][nextC] == 1) {
+                        fresh--;
+                        grid[nextR][nextC] = 2;
+                        rotten.add(nextR * cols + nextC);
+                    }
+                }
+            }
+        }
+        return fresh == 0 ? timer : -1;
+    }
+}
