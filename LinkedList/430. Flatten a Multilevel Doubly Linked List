@@ -1,0 +1,39 @@
+class Solution {
+    public Node flatten(Node head) {
+        
+        // Base case, no need to flatten anything
+        if (head == null) return head;
+        
+        // We need to flatten the "next" node
+        Node oldNext = flatten(head.next);
+        
+        Node cur = head;
+        
+        // If we have a child, we need to flatten it
+        if (head.child != null) {
+            Node newNext = flatten(head.child);
+            
+            // We need to make child null, as it's not wanted anymore
+            head.child = null;
+            
+            // Doubly connection between the flattened child and the head
+            head.next = newNext;
+            newNext.prev = head;
+            
+            // We need to move our pointer to the end of flattened child, this end should be connected to old next
+            cur = newNext;
+            while (cur.next != null) {
+                cur = cur.next;
+            }
+        }
+        
+        // If there is no child we are connecting the head to flattened old next again.
+        // If we have child, the end of flattened child is connected to flattened old next.
+        cur.next = oldNext;
+        
+        // Null check for the end
+        if (oldNext != null) oldNext.prev = cur;
+        
+        return head;
+    }
+}
