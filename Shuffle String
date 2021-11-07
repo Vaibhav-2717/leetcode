@@ -6,6 +6,5 @@ class Solution {
             
         }
     return String.valueOf(a);
-    }
-    
+    }   
 }
