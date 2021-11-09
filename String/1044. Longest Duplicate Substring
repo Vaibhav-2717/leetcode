@@ -32,8 +32,7 @@ class Solution {
             }
             set.add(currHash);
         }
-        return null;
-    }
+        return null; }
     private long nextHash(long pow,long oldHash,char left,char right){
         return (oldHash-left*pow)*primeno + right;
     }
