@@ -1,0 +1,36 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        
+        Map<Character ,Integer> rN = new HashMap<>();
+        Map<Character ,Integer> mag = new HashMap<>();
+        
+        for(int i=0;i<ransomNote.length();i++){
+            char c= ransomNote.charAt(i);
+            if(rN.containsKey(c))
+                rN.put(c ,rN.get(c)+1);
+            else
+                rN.put(c,1);
+        }
+        
+         for(int i=0;i<magazine.length();i++){
+            char c= magazine.charAt(i);
+            if(mag.containsKey(c))
+                mag.put(c ,mag.get(c)+1);
+            else
+                mag.put(c,1);
+        }
+        
+        for(int i=0;i<ransomNote.length();i++){
+            char c=ransomNote.charAt(i);
+          if(rN.containsKey(c) && mag.containsKey(c)){
+            if(rN.get(c)<=mag.get(c))
+                continue;
+            else
+                return false;
+          }else
+              return false;
+        }
+        
+        return true;
+    }
+}
