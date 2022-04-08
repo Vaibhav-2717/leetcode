@@ -12,5 +12,5 @@
 - 101.Symmetric Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/101.%20Symmetric%20Tree)
 - 95.Unique Binary Search Trees II [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/95.Unique%20Binary%20Search%20Trees%20II)
 - 993.Cousins in Binary Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/993.%20Cousins%20in%20Binary%20Tree)
-
-
+- 226.Invert Binary Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/226.%20Invert%20Binary%20Tree)
+- 112.Path Sum [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/112.%20Path%20Sum)
