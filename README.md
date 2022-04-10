@@ -18,3 +18,4 @@
 - 701.Insert into a Binary Search Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/701.%20Insert%20into%20a%20Binary%20Search%20Tree)
 - 98.Validate Binary Search Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/98.%20Validate%20Binary%20Search%20Tree)
 - 653.Two Sum IV - Input is a BST [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/653.%20Two%20Sum%20IV%20-%20Input%20is%20a%20BST)
+- 235.Lowest Common Ancestor of a Binary Search Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree)
