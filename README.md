@@ -16,3 +16,4 @@
 - 112.Path Sum [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/112.%20Path%20Sum)
 - 700.Search in Binary Search Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/700.%20Search%20in%20a%20Binary%20Search%20Tree)
 - 701.Insert into a Binary Search Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/701.%20Insert%20into%20a%20Binary%20Search%20Tree)
+- 98.Validate Binary Search Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/98.%20Validate%20Binary%20Search%20Tree)
