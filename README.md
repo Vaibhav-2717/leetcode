@@ -39,3 +39,4 @@
 ## SQL
 [1148. Article Views I](https://github.com/Vaibhav-2717/leetcode/blob/main/SQL/1148.%20Article%20Views%20I)
 [1484. Group Sold Products By The Date](https://github.com/Vaibhav-2717/leetcode/blob/main/SQL/1484.%20Group%20Sold%20Products%20By%20The%20Date)
+[1527. Patients With a Condition](https://github.com/Vaibhav-2717/leetcode/blob/main/SQL/1527.%20Patients%20With%20a%20Condition)
