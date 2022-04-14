@@ -1,7 +1,5 @@
 # leetcode with java
-## Arrays
-[problems](https://github.com/Vaibhav-2717/leetcode/tree/main/array)
-## BinaryTrees
+### BinaryTrees
 - 102.Binary Tree Level Order Traversal [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/102.%20Binary%20Tree%20Level%20Order%20Traversal)
 - 104.Maximum Depth of Binary Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/104.%20Maximum%20Depth%20of%20Binary%20Tree)
 - 111.Minimum Depth of Binary Tree [👎](https://github.com/Vaibhav-2717/leetcode/blob/main/BinaryTree/111.%20Minimum%20Depth%20of%20Binary%20Tree)
